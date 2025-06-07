@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FedEx Delivery Clone</title>
+  <title>FedEx Delivery Official</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -81,11 +81,12 @@
   </header>
 
   <div class="hero">
-    <h1>Welcome to FedExClone Delivery Services</h1>
+    <h1>Welcome to FedEx Official Delivery Services</h1>
     <p>Track your packages, ship faster, and get personalized shipping solutions.</p>
     <input type="text" placeholder="Enter your tracking number" id="trackInput" />
-    <button onclick="trackNow()">Track</button>
-  </div><br>
+<a href="track.html">
+  <button>Track</button>
+</a><br>
 
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 40px; background: #f9f9f9;">
@@ -304,16 +305,10 @@
     <p>Follow FedEx</p>
   </div>
 
-  <script>
-    function trackNow() {
-      const trackingNumber = document.getElementById('trackInput').value.trim();
-      if (trackingNumber !== '') {
-        window.location.href = `track.html?tracking=${trackingNumber}`;
-      } else {
-        alert('Please enter a valid tracking number');
-      }
-    }
-  </script>
+  <form onsubmit="event.preventDefault(); window.location.href='track.html?tn=' + document.getElementById('trackingInput').value;">
+  <input type="text" id="trackingInput" placeholder="Enter tracking number">
+  <button type="submit">Track</button>
+</form>
 </body>
 </html>
 
