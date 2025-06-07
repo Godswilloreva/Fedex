@@ -73,19 +73,36 @@
     <div><strong>FedEx Official ✈️</strong></div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="track.html">Track</a>
+      <a href="index.html">Track</a>
       <a href="ship.html">Ship</a>
       <a href="help.html">Help</a>
-      <a href="sign.html">Sign In</a>
+      <a href="fedex-thanks.html">Our Sincere Gratitude</a>
     </nav>
   </header>
 
   <div class="hero">
     <h1>Welcome to FedEx Official Delivery Services</h1>
-    <p>Track your packages, ship faster, and get personalized shipping solutions.</p>
-    <input type="text" placeholder="Enter your tracking number" id="trackInput" />
-<a href="track.html">
-  <button>Track</button>
+<br><br>
+
+ <p>Track your packages, ship faster, and get personalized shipping solutions.</p>
+
+<input type="text" placeholder="Enter your tracking number" id="trackInput" />
+<button onclick="validateTracking()">Track</button>
+
+<script>
+  function validateTracking() {
+    const validTrackingNumber = "FXUP83XHYE83K9N37JDO58UR49";
+    const input = document.getElementById("trackInput").value.trim();
+
+    if (input === validTrackingNumber) {
+      window.location.href = "track.html";
+    } else {
+      alert("Invalid tracking number. Please check and try again.");
+    }
+  }
+</script>
+
+
 </a><br>
 
 
@@ -188,7 +205,7 @@
   </p>
 
   <div style="text-align: center;">
-    <a href="#start-shipping" style="
+    <a href="ship.html" style="
       background-color: #ff6600;
       color: white;
       padding: 20px 60px;
