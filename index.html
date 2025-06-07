@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FastTrack Delivery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input {
+      padding: 15px;
+      width: 80%;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #4e2a84;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Enter Your Tracking Number</h2>
+    <input type="text" id="track" placeholder="e.g. FX123456">
+    <br>
+    <button onclick="go()">Track</button>
+  </div>
+
+  <script>
+    function go() {
+      const id = document.getElementById("track").value.trim();
+      if(id) {
+        window.location.href = `track.html?track=${id}`;
+      } else {
+        alert("Please enter a valid tracking number.");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Track Package | FastTrack</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      padding: 30px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #4e2a84;
+    }
+    .info {
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+    .progress {
+      background: #ddd;
+      height: 20px;
+      border-radius: 30px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    .progress-bar {
+      background: #4e2a84;
+      height: 100%;
+      width: 0%;
+      color: white;
+      text-align: center;
+      line-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Tracking ID: <span id="trackId"></span></h2>
+    <div class="info">
+      <strong>Package:</strong> <span id="packageName"></span><br>
+      <strong>Recipient:</strong> <span id="recipient"></span><br>
+      <strong>Status:</strong> <span id="status"></span><br>
+      <strong>Estimated Delivery:</strong> <span id="deliveryDate"></span>
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar">0%</div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const trackCode = params.get("track");
+
+    document.getElementById("trackId").textContent = trackCode;
+
+    // Fake data
+    const trackingData = {
+      "FX123456": {
+        package: "MacBook Pro 16\"",
+        recipient: "Godswill Ugbesia",
+        status: "In Transit",
+        deliveryDate: "June 10, 2025",
+        progress: 60
+      },
+      "FX654321": {
+        package: "iPhone 15 Pro Max",
+        recipient: "Edalyn Fairfax",
+        status: "Out for Delivery",
+        deliveryDate: "June 7, 2025",
+        progress: 90
+      }
+    };
+
+    if (trackingData[trackCode]) {
+      const data = trackingData[trackCode];
+      document.getElementById("packageName").textContent = data.package;
+      document.getElementById("recipient").textContent = data.recipient;
+      document.getElementById("status").textContent = data.status;
+      document.getElementById("deliveryDate").textContent = data.deliveryDate;
+
+      const progressBar = document.getElementById("progressBar");
+      progressBar.style.width = data.progress + "%";
+      progressBar.textContent = data.progress + "%";
+    } else {
+      document.querySelector(".info").innerHTML = `<strong style="color:red;">Tracking number not found.</strong>`;
+      document.querySelector(".progress").style.display = "none";
+    }
+  </script>
+</body>
+</html>.
