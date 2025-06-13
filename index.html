@@ -89,10 +89,14 @@
 <input type="text" placeholder="Enter your tracking number" id="trackInput" />
 <button onclick="validateTracking()">Track</button>
 
+<p>Track your packages, ship faster, and get personalized shipping solutions.</p>
+
+<input type="text" placeholder="Enter your tracking number" id="trackInput" />
+<button onclick="validateTracking()">Track</button>
+
 <script>
   function validateTracking() {
-    const validTrackingNumber = "837492615038247
-";
+    const validTrackingNumber = "837492615038247";
     const input = document.getElementById("trackInput").value.trim();
 
     if (input === validTrackingNumber) {
